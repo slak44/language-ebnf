@@ -1,0 +1,79 @@
+{
+  "scopeName": "source.ebnf",
+  "name": "EBNF",
+  "fileTypes": [
+    "ebnf"
+  ],
+  "patterns": [
+    {
+      "begin": "\\(\\*",
+      "end": "\\*\\)",
+      "name": "comment.block.ebnf",
+      "patterns": [
+        {"match": "."}
+      ]
+    },
+    {
+      "begin": "(.*?)(\\=)",
+      "end": "(;|\\.)",
+      "captures": {
+        "3": {"name": "none.ebnf"},
+        "2": {"name": "keyword.operator.assignment.ebnf"},
+        "1": {"name": "support.variable.ebnf"}
+      },
+      "patterns": [
+        {
+          "begin": "\\?",
+          "end": "\\?",
+          "name": "constant.other.ebnf",
+          "patterns": [
+            {"match": "."}
+          ]
+        },
+        {
+          "begin": "\"",
+          "end": "\"",
+          "name": "string.quoted.double.untitled.ebnf",
+          "patterns": [
+            {"match": "."}
+          ]
+        },
+        {
+          "begin": "'",
+          "end": "'",
+          "name": "string.quoted.single.untitled.ebnf",
+          "patterns": [
+            {"match": "."}
+          ]
+        },
+        {
+          "begin": "\\(\\*",
+          "end": "\\*\\)",
+          "name": "comment.block.ebnf",
+          "patterns": [
+            {"match": "."}
+          ]
+        },
+        {
+          "match": "\\{|\\}",
+          "name": "constant.character.escape.ebnf"
+        },
+        {
+          "match": "\\(|\\)",
+          "name": "keyword.other.ebnf"
+        },
+        {
+          "match": "\\[|\\]|\\-",
+          "name": "constant.character.escape.ebnf"
+        },
+        {
+          "match": "(\\d+)\\s+(\\*)",
+          "captures": {
+            "1": {"name": "constant.numeric.integer.decimal.ebnf"},
+            "2": {"name": "keyword.other.ebnf"}
+          }
+        }
+      ]
+    }
+  ]
+}
